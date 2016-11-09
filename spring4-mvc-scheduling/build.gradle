@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+repositories {
+     mavenCentral()
+}
+
+dependencies {
+    compile group: 'log4j', name: 'log4j', version: '1.2.14'
+    compile 'org.springframework:spring-webmvc:4.3.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-tx', version: '4.3.3.RELEASE'
+    compile group: 'jstl', name: 'jstl', version: '1.2'
+}
+
+gretty {
+  port = 8181
+  contextPath = '/spring-scheduling'
+}
+
+//For Eclipse IDE only
+eclipse {
+  wtp {
+    component {
+      //define context path, default to project folder name
+      contextPath = '/spring-scheduling'
+    }
+  }
+}
