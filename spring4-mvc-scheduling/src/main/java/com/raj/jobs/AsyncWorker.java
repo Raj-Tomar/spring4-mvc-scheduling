@@ -19,13 +19,13 @@ public class AsyncWorker implements Worker {
 	@Async
 	public void work() {
 		String threadName = Thread.currentThread().getName();
-		logger.info("   " + threadName + " has began working.");
+		logger.info("AsyncWorker   " + threadName + " has began working.");
         try {
         	logger.info("working...");
             Thread.sleep(10000); // simulates work
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-        logger.info("   " + threadName + " has completed work.");
+        logger.info("AsyncWorker   " + threadName + " has completed work.");
 	}
 }
